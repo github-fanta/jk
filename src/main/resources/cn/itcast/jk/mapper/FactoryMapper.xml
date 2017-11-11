@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itcast.jk.mapper.FactoryMapper"> 
+	<!-- resultMap映射 -->
+	<resultMap type="cn.itcast.jk.domain.Factory" id="factoryRM">
+		<!-- 主键 -->
+		<id property="id" column="FACTORY_ID"></id>
+		<!-- 一般属性 -->
+		<result property="fullName" column="FULL_NAME"/>
+		<result property="factoryName" column="FACTORY_NAME"/>
+		<result property="contacts" column="CONTACTS"/>
+		<result property="phone" column="PHONE"/>
+		<result property="mobile" column="MOBILE"/>
+		<result property="fax" column="FAX"/>
+		<result property="cnote" column="CNOTE"/>
+		<result property="inspector" column="INSPECTOR"/>
+		<result property="orderNo" column="ORDER_NO"/>
+		
+		<result property="createBy" column="CREATE_BY"/>
+		<result property="createDept" column="CREATE_DEPT"/>
+		<result property="createTime" column="CREATE_TIME"/>
+	</resultMap>
+	
+	<!-- 查询 -->
+	<select id="find" parameterType="map" resultMap="factoryRM">
+		select * from factory_c
+		where 1=1
+	</select>
+	
+	<select id="insert" parameterType="cn.itcast.jk.domain.Factory">
+	  INSERT INTO FACTORY_C (FACTORY_ID, FULL_NAME, FACTORY_NAME, CONTACTS, PHONE, MOBILE, 
+      FAX, CNOTE,INSPECTOR,ORDER_NO,CREATE_BY,CREATE_DEPT,
+      CREATE_TIME)
+   	  VALUES (#{id}, #{fullName}, #{factoryName}, #{contacts}, #{phone}, #{mobile}, 
+      #{fax}, #{cnote}, #{inspector}, #{orderNo}, #{createBy}, #{createDept},
+      #{createTime})
+	</select>
+	
+	<select id="get" parameterType="string" resultMap="factoryRM">
+		select * from factory_c
+		where FACTORY_ID=#{id}
+	</select>
+	
+	<update id="update" parameterType="cn.itcast.jk.domain.Factory">
+		UPDATE factory_c
+		<set>
+			<if test="fullName != null">FULL_NAME=#{fullName},</if>
+			<if test="fullName != null">FACTORY_NAME=#{factoryName},</if>
+			<if test="fullName != null">CONTACTS=#{contacts},</if>
+			<if test="fullName != null">PHONE=#{phone},</if>
+			<if test="fullName != null">MOBILE=#{mobile},</if>
+			<if test="fullName != null">FAX=#{fax},</if>
+			<if test="fullName != null">CNOTE=#{cnote},</if>
+			<if test="fullName != null">INSPECTOR=#{inspector},</if>
+			<if test="fullName != null">ORDER_NO=#{orderNo},</if>
+			<if test="fullName != null">CREATE_BY=#{createBy},</if>
+			<if test="fullName != null">CREATE_DEPT=#{createDept},</if>
+			<if test="fullName != null">CREATE_TIME=#{createTime}</if>
+			
+		</set>
+		WHERE FACTORY_ID=#{id}
+	</update>
+</mapper>
