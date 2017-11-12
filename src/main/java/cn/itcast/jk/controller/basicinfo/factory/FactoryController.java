@@ -1,9 +1,11 @@
 package cn.itcast.jk.controller.basicinfo.factory;
 
+import java.io.ObjectInputStream.GetField;
 import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Controller;
@@ -66,44 +68,44 @@ public class FactoryController extends BaseController {
 		
 		return "redirect:/basicinfo/factory/list.action";
 	}
+	
 	//删除一个
-	@RequestMapping("/basicinfo/factory/deleteById.action")
-	public String deleteById(String id){
+	@RequestMapping("basicinfo/factory/deleteById.action")
+	public String deleteById(String id) {
 		factoryService.deleteById(id);
-		
 		return "redirect:/basicinfo/factory/list.action";
 	}
 	
-	//删除多条
-	@RequestMapping("/basicinfo/factory/delete.action")
-	public String delete(@RequestParam("id")String[] ids){
+	//删除多个
+	@RequestMapping("basicinfo/factory/delete.action")
+	public String delete(@RequestParam("id") String[] ids) {
 		factoryService.delete(ids);
 		
 		return "redirect:/basicinfo/factory/list.action";
 	}
 	
-	//查看
+	
+	//获取一个
 	@RequestMapping("/basicinfo/factory/toview.action")
-	public String toview(String id, Model model){
-		Factory obj = factoryService.get(id);
-		model.addAttribute("obj", obj);
-		
+	public String toview(String id, Model model) {
+		Factory factory = factoryService.get(id);
+		model.addAttribute("obj", factory);
 		return "/basicinfo/factory/jFactoryView.jsp";
 	}
 	
-	//批量启用
+	
+	//启用多个
 	@RequestMapping("/basicinfo/factory/start.action")
-	public String start(@RequestParam("id")String[] ids){
+	public String start(@RequestParam("id") String[] ids) {
 		factoryService.start(ids);
-		
-		return "redirect:/basicinfo/factory/list.action";
+		return "redirect:/basicinfo/factory/list.jsp";
 	}
 	
-	//批量停用
+	//停用多个
 	@RequestMapping("/basicinfo/factory/stop.action")
-	public String stop(@RequestParam("id")String[] ids){
+	public String stop(@RequestParam("id") String[] ids) {
 		factoryService.stop(ids);
-		
-		return "redirect:/basicinfo/factory/list.action";
-	}
+		return "redirect:/basicinfo/factory/list.jsp";
+	} 
+
 }

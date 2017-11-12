@@ -21,6 +21,7 @@ public interface FactoryService {
 	public void update(Factory factory);			//修改，用实体作为参数
 	public void deleteById(Serializable id);		//按id删除，删除一条；支持整数型和字符串类型ID
 	public void delete(Serializable[] ids);			//批量删除；支持整数型和字符串类型ID
+
 	
 	public void start(Serializable[] ids);			//启用
 	public void stop(Serializable[] ids);			//停用

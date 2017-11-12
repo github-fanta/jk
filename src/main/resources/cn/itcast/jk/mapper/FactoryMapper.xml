@@ -15,7 +15,7 @@
 		<result property="cnote" column="CNOTE"/>
 		<result property="inspector" column="INSPECTOR"/>
 		<result property="orderNo" column="ORDER_NO"/>
-		
+		<result property="state" column="STATE"/>
 		<result property="createBy" column="CREATE_BY"/>
 		<result property="createDept" column="CREATE_DEPT"/>
 		<result property="createTime" column="CREATE_TIME"/>
@@ -29,10 +29,10 @@
 	
 	<select id="insert" parameterType="cn.itcast.jk.domain.Factory">
 	  INSERT INTO FACTORY_C (FACTORY_ID, FULL_NAME, FACTORY_NAME, CONTACTS, PHONE, MOBILE, 
-      FAX, CNOTE,INSPECTOR,ORDER_NO,CREATE_BY,CREATE_DEPT,
+      FAX, CNOTE,INSPECTOR,ORDER_NO,STATE, CREATE_BY,CREATE_DEPT,
       CREATE_TIME)
    	  VALUES (#{id}, #{fullName}, #{factoryName}, #{contacts}, #{phone}, #{mobile}, 
-      #{fax}, #{cnote}, #{inspector}, #{orderNo}, #{createBy}, #{createDept},
+      #{fax}, #{cnote}, #{inspector}, #{orderNo}, #{state}, #{createBy}, #{createDept},
       #{createTime})
 	</select>
 	
@@ -51,6 +51,7 @@
 			<if test="fullName != null">MOBILE=#{mobile},</if>
 			<if test="fullName != null">FAX=#{fax},</if>
 			<if test="fullName != null">CNOTE=#{cnote},</if>
+			<if test="fullName != null">CNOTE=#{state},</if>
 			<if test="fullName != null">INSPECTOR=#{inspector},</if>
 			<if test="fullName != null">ORDER_NO=#{orderNo},</if>
 			<if test="fullName != null">CREATE_BY=#{createBy},</if>
@@ -60,4 +61,20 @@
 		</set>
 		WHERE FACTORY_ID=#{id}
 	</update>
+	
+	
+	<!-- 通过id删除 -->
+	<delete id="deleteById" parameterType="string">
+		delete from factory_c
+		where FACTORY_ID=#{pid}
+	</delete>
+	
+	<!-- 删除多条 (一维字符串数组)-->
+	<delete id="delete" parameterType="string">
+		delete from factory_c
+		where FACTORY_ID in
+		<foreach collection="array" item="id" open="(" close=")" separator=",">
+			#{id}
+		</foreach>
+	</delete>
 </mapper>

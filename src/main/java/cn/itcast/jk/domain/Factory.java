@@ -20,7 +20,7 @@ public class Factory {
 	private String cnote;
 	private String inspector;
 	private Integer orderNo;
-	
+	private String state;
 	private String createBy;
 	private String createDept;
 	private java.util.Date createTime;
@@ -101,6 +101,12 @@ public class Factory {
 	}
 	public void setCreateTime(java.util.Date createTime) {
 		this.createTime = createTime;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 	

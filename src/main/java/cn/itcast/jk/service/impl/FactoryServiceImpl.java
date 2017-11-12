@@ -42,6 +42,7 @@ public class FactoryServiceImpl implements FactoryService {
 
 	public void insert(Factory factory) {
 		factory.setId(UUID.randomUUID().toString());
+		factory.setState("1"); //默认启用状态 0:停用 1：启用
 		factoryDao.insert(factory);
 	}
 
@@ -50,23 +51,29 @@ public class FactoryServiceImpl implements FactoryService {
 	}
 
 	public void deleteById(Serializable id) {
-		// TODO Auto-generated method stub
-		
+
+		factoryDao.deleteById(id);
 	}
 
 	public void delete(Serializable[] ids) {
-		// TODO Auto-generated method stub
-		
+
+		factoryDao.delete(ids);
 	}
 
 	public void start(Serializable[] ids) {
-		// TODO Auto-generated method stub
-		
+
+		HashMap map = new HashMap();
+		map.put("state", "1");  //0:停用 1：启用
+		map.put("ids", ids);
+		factoryDao.updateState(map);
 	}
 
 	public void stop(Serializable[] ids) {
-		// TODO Auto-generated method stub
-		
+
+		HashMap map = new HashMap();
+		map.put("state", "0");  //0:停用 1：启用
+		map.put("ids", ids);
+		factoryDao.updateState(map);
 	}
 
 

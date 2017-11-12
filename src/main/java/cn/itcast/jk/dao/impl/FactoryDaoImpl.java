@@ -23,4 +23,5 @@ public class FactoryDaoImpl extends BaseDaoImpl<Factory> implements FactoryDao{
 	public void updateState(Map map) {
 		super.getSqlSession().update(super.getNs()+".updateState", map);
 	}
+	
 }
