@@ -25,12 +25,11 @@
     <div class="textbox-header">
     <div class="textbox-inner-header">
     <div class="textbox-title">
-		新增厂家信息
+		新增生产厂家信息
     </div> 
     </div>
     </div>
-</div>
- 
+<div>
     <div>
 		<table class="commonTable" cellspacing="1">
 	        <tr>
@@ -46,24 +45,24 @@
 	            <td class="tableContent"><input type="text" name="phone"/></td>
 	        </tr>
 	        <tr>
-	        	<td class="columnTitle_mustbe">手机：</td>
+	            <td class="columnTitle_mustbe">手机：</td>
 	            <td class="tableContent"><input type="text" name="mobile"/></td>
 	            <td class="columnTitle_mustbe">传真：</td>
 	            <td class="tableContent"><input type="text" name="fax"/></td>
-	            
 	        </tr>
 	        <tr>
-	        	<td class="columnTitle_mustbe">验货员：</td>
+	            <td class="columnTitle_mustbe">验货员：</td>
 	            <td class="tableContent"><input type="text" name="inspector"/></td>
 	            <td class="columnTitle_mustbe">排序号：</td>
 	            <td class="tableContent"><input type="text" name="orderNo"/></td>
 	        </tr>
 	        <tr>
-	        	<td class="columnTitle_mustbe">备注：</td>
-	           		 <td class="tableContent"><textarea name="cnote" style="height:120px;"></textarea></td>
-	        	</tr>
+	            <td class="columnTitle_mustbe">备注：</td>
+	            <td class="tableContent"><textarea name="cnote" style="height:120px;"></textarea></td>
+	        </tr>
 		</table>
 	</div>
+</div>
  
  
 </form>

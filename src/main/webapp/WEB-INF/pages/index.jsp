@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>陕西杰信商务综合管理平台</title>
-	<link rel="stylesheet" rev="stylesheet" type="text/css" href="${cvx}/skin/default/css/login.css" media="all" />
+	<link rel="stylesheet" rev="stylesheet" type="text/css" href="${ctx}/skin/default/css/login.css" media="all" />
 </head>
 
 <body>

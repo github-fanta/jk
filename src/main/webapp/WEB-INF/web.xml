@@ -4,14 +4,10 @@
   <display-name>Archetype Created Web Application</display-name>
   
   <!-- 1.spring框架 -->
-  
-     <!-- 配置spring配置文件的位置 -->
   <context-param>
   	<param-name>contextConfigLocation</param-name>
   	<param-value>classpath:beans.xml</param-value>
   </context-param>
-  
-      <!-- 默认applicationContext.xml 而且在WEB-INF下面 -->
   <listener>
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
