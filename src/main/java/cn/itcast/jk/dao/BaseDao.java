@@ -7,10 +7,10 @@ import java.util.Map;
 import cn.itcast.jk.pagination.Page;
 
 /**
- * @Description: 泛型类，基础的DAO接口
- * @Author:	nutony
- * @Company:	http://java.itcast.cn
- * @CreateDate:	2014-2-25
+ * 
+ * @author liq
+ *
+ * @param <T>
  */
 public interface BaseDao<T> {
 	public List<T> findPage(Page page);				//分页查询

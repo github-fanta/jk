@@ -18,10 +18,9 @@ import cn.itcast.jk.domain.Factory;
 import cn.itcast.jk.service.FactoryService;
 
 /**
- * @Description:
- * @Author:	nutony
- * @Company:	http://java.itcast.cn
- * @CreateDate:	2014年10月9日
+ * 
+ * @author liq
+ *
  */
 @Controller
 public class FactoryController extends BaseController {

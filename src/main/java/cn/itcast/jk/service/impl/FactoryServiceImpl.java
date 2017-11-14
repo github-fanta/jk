@@ -16,10 +16,9 @@ import cn.itcast.jk.pagination.Page;
 import cn.itcast.jk.service.FactoryService;
 
 /**
- * @Description:
- * @Author:	nutony
- * @Company:	http://java.itcast.cn
- * @CreateDate:	2014年10月9日
+ * 
+ * @author liq
+ *
  */
 @Service
 public class FactoryServiceImpl implements FactoryService {

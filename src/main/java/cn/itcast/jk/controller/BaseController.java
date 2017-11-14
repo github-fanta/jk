@@ -9,10 +9,9 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
 /**
- * @Description:
- * @Author:	nutony
- * @Company:	http://java.itcast.cn
- * @CreateDate:	2014-3-4
+ * 
+ * @author liq
+ *
  */
 public abstract class BaseController {
 	@InitBinder
