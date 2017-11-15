@@ -84,7 +84,8 @@ public class ContractProductController extends BaseController {
 	
 	//删除订单中的货物
 	@RequestMapping("/cargo/contractproduct/deleteById.action")
-	public String delete(String id) {
+	public String delete(String id, String contractId, Model model) {
+		model.addAttribute("contractId", contractId);	//传递主表的合同号，为了下次只查这个合同号下面的货物
 		contractProductService.deleteById(id);
 		return "redirect:/cargo/contractproduct/tocreate.action";
 	}

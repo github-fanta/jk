@@ -45,6 +45,7 @@
 		<td class="tableHeader">序号</td>
 		<td class="tableHeader">客户名称</td>
 		<td class="tableHeader">合同号</td>
+		<td class="tableHeader">货物数/附件数</td>
 		<td class="tableHeader">制单人</td>
 		<td class="tableHeader">审单人</td>
 		<td class="tableHeader">验货员</td>
@@ -64,6 +65,7 @@
 		<td>${status.index+1}</td>
 		<td>${o.customName}</td>
 		<td><a href="toview.action?id=${o.id}">${o.contractNo}</a></td>
+		<td>${o.cpnum}/${o.extnum}</td>
 		<td>${o.inputBy}</td>
 		<td>${o.checkBy}</td>
 		<td>${o.inspector}</td>

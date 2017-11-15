@@ -102,4 +102,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{id}
 		</foreach>
 	</delete>
+	
+	<delete id="deleteByContractId" parameterType="string">
+		delete from contract_product_c
+		where CONTRACT_ID in
+		<foreach collection="array" item="id" open="(" close=")" separator=",">
+		#{id}
+		</foreach>
+	</delete>
 </mapper>

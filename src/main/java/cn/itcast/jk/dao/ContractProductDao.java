@@ -1,5 +1,6 @@
 package cn.itcast.jk.dao;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import cn.itcast.jk.domain.ContractProduct;
@@ -10,5 +11,5 @@ import cn.itcast.jk.domain.ContractProduct;
  *
  */
 public interface ContractProductDao extends BaseDao<ContractProduct> {
-
+	void deleteByContractId(Serializable[] ids);
 }

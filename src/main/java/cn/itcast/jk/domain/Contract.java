@@ -7,6 +7,10 @@ package cn.itcast.jk.domain;
  */
 public class Contract {
 	private String id;
+	
+	private String cpnum;
+	private String extnum;
+
 	private String offeror;
 	private String contractNo;
 	private java.util.Date signingDate;
@@ -160,5 +164,18 @@ public class Contract {
 	}
 	public void setCreateTime(java.util.Date createTime) {
 		this.createTime = createTime;
+	}
+	
+	public String getCpnum() {
+		return cpnum;
+	}
+	public void setCpnum(String cpnum) {
+		this.cpnum = cpnum;
+	}
+	public String getExtnum() {
+		return extnum;
+	}
+	public void setExtnum(String extnum) {
+		this.extnum = extnum;
 	}
 }

@@ -8,12 +8,17 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.itcast.jk.dao.ContractDao;
+import cn.itcast.jk.dao.ContractProductDao;
+import cn.itcast.jk.dao.ExtCproductDao;
 import cn.itcast.jk.domain.Contract;
 import cn.itcast.jk.pagination.Page;
+import cn.itcast.jk.service.ContractProductService;
 import cn.itcast.jk.service.ContractService;
+import cn.itcast.jk.service.ExtCproductService;
 
 /**
  * 
@@ -25,6 +30,12 @@ public class ContractServiceImpl implements ContractService {
 	@Resource
 	ContractDao contractDao;
 
+	@Autowired
+	ContractProductDao contractProductDao;
+	
+	@Autowired
+	ExtCproductDao extCproductDao;
+	
 	public List<Contract> findPage(Page page) {
 		return contractDao.findPage(page);
 	}
@@ -48,11 +59,16 @@ public class ContractServiceImpl implements ContractService {
 	}
 
 	public void deleteById(Serializable id) {
+		Serializable[] ids = {id};
+		extCproductDao.deleteByContractId(ids); 				//删除下下级关联的所有附件
+		contractProductDao.deleteByContractId(ids);  	//先删除下级关联的合同下所有商品
 		contractDao.deleteById(id);
 	}
 
 	public void delete(Serializable[] ids) {
-		contractDao.delete(ids);
+		extCproductDao.deleteByContractId(ids); 				//删除下下级关联的所有附件
+		contractProductDao.deleteByContractId(ids); 	//先删除下级关联的合同下所有商品
+		contractDao.delete(ids); 		 				//再删除合同
 	}
 
 	public void submit(Serializable[] ids) {

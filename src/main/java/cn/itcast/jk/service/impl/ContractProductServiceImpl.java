@@ -9,9 +9,11 @@ import java.util.UUID;
 import javax.annotation.Resource;
 
 import org.aspectj.weaver.Utils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.itcast.jk.dao.ContractProductDao;
+import cn.itcast.jk.dao.ExtCproductDao;
 import cn.itcast.jk.domain.ContractProduct;
 import cn.itcast.jk.pagination.Page;
 import cn.itcast.jk.service.ContractProductService;
@@ -24,8 +26,12 @@ import cn.itcast.util.UtilFuns;
  */
 @Service
 public class ContractProductServiceImpl implements ContractProductService {
+	
 	@Resource
 	ContractProductDao contractProductDao;
+
+	@Autowired
+	ExtCproductDao extCproductDao;
 
 	public List<ContractProduct> findPage(Page page) {
 		return contractProductDao.findPage(page);
@@ -54,10 +60,13 @@ public class ContractProductServiceImpl implements ContractProductService {
 	}
 
 	public void deleteById(Serializable id) {
+		Serializable[] ids = {id};
+		extCproductDao.deleteByContractProductById(ids);  //先删除与之级联的下级表
 		contractProductDao.deleteById(id);
 	}
 
 	public void delete(Serializable[] ids) {
+		extCproductDao.deleteByContractProductById(ids);  //先删除与之级联的下级表
 		contractProductDao.delete(ids);
 	}
 

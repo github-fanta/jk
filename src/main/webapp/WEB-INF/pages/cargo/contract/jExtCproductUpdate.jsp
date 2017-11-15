@@ -14,7 +14,7 @@
 <body>
 <form method="post">
 	货物id:<input type="text" name="id" value="${obj.id }"/>
-	合同号：<input type="text" name="contractId" value="${obj.contractId}"/>
+	合同号：<input type="text" name="contractProductId" value="${obj.contractProductId}"/>
 
 <div id="menubar">
 <div id="middleMenubar">
@@ -22,7 +22,7 @@
     <div id="navMenubar">
 <ul>
 <li id="save"><a href="#" onclick="formSubmit('update.action','_self');">确定</a></li>
-<li id="back"><a href="tocreate.action?contractId=${obj.contractId}">返回</a></li>
+<li id="back"><a href="tocreate.action?contractProductId=${obj.contractProductId}">返回</a></li>
 </ul>
     </div>
 </div>
@@ -34,7 +34,7 @@
     <div class="textbox-header">
     <div class="textbox-inner-header">
     <div class="textbox-title">
-		修改货物信息
+		修改附件信息
     </div> 
     </div>
     </div>
@@ -56,6 +56,16 @@
 	            <td class="tableContent"><input type="text" name="productNo" value="${obj.productNo}"/></td>
 	        </tr>
 	        <tr>
+	        	<td class="columnTitle_mustbe">分类：</td>
+	        	<td class="tableContent">
+	        		<select name="ctype">
+		            	<option value="">--请选择--</option>
+	            		<c:forEach items="${ctypeList}" var="cl">
+	            			<option value="${cl.orderNo}" <c:if test="${obj.ctype == cl.orderNo}">selected</c:if>>${cl.name}</option>
+	            		</c:forEach>
+	            	</select>
+	            </td>
+	        	
 	            <td class="columnTitle_mustbe">货物照片：</td>
 	            <td class="tableContent"><input type="text" name="productImage" value="${obj.productImage}"/></td>
 	        </tr>
@@ -66,12 +76,6 @@
 	            <td class="tableContent"><input type="text" name="packingUnit" value="${obj.packingUnit}"/></td>
 	        </tr>
 	        <tr>
-	            <td class="columnTitle_mustbe">装率：</td>
-	            <td class="tableContent"><input type="text" name="loadingRate" value="${obj.loadingRate}"/></td>
-	            <td class="columnTitle_mustbe">箱数：</td>
-	            <td class="tableContent"><input type="text" name="boxNum" value="${obj.boxNum}"/></td>
-	        </tr>
-	        <tr>
 	            <td class="columnTitle_mustbe">单价：</td>
 	            <td class="tableContent"><input type="text" name="price" value="${obj.price}"/></td>
 	            <td class="columnTitle_mustbe">排序号：</td>
@@ -80,6 +84,8 @@
 	        <tr>
 	            <td class="columnTitle_mustbe">货物描述：</td>
 	            <td class="tableContent"><textarea name="productDesc" style="height:120px;">${obj.productDesc}</textarea></td>
+	            <td class="columnTitle_mustbe">要求：</td>
+	            <td class="tableContent"><textarea name="productRequest" style="height:120px;">${obj.productRequest}</textarea></td>
 	        </tr>
 		</table>
 	</div>

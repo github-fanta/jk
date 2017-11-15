@@ -51,10 +51,43 @@ public class ExtCproductController extends BaseController {
 		return "/cargo/contract/jExtCproductCreate.jsp";
 	}
 	
+	//新增
 	@RequestMapping("/cargo/extcproduct/insert.action")
 	public String insert(ExtCproduct extCproduct, Model model) {
 		extCproductService.insert(extCproduct);
-		model.addAttribute("extCproductId", extCproduct.getContractProductId());  //传递主表ID
+		model.addAttribute("contractProductId", extCproduct.getContractProductId());  //传递主表ID
 		return "redirect:/cargo/extcproduct/tocreate.action";
 	}
+	
+	//转向更新页面
+	@RequestMapping("/cargo/extcproduct/toupdate.action")
+	public String toupdate(String id, Model model) {
+		ExtCproduct extCproduct = extCproductService.get(id);
+		model.addAttribute("obj", extCproduct);  //传递主表ID
+		
+		//准备生产厂家的下拉列表
+		List<Factory> factoryList = factoryService.getFactoryList();
+		model.addAttribute("factoryList", factoryList);
+		
+		//准备分类下拉列表
+		List<SysCode> ctypeList = extCproductService.getCtypeList();
+		model.addAttribute("ctypeList", ctypeList);
+		
+		return "/cargo/contract/jExtCproductUpdate.jsp";
+	}
+	
+	//更新附件列表
+		@RequestMapping("/cargo/extcproduct/update.action")
+		public String update(ExtCproduct extCproduct, Model model) {
+			model.addAttribute("contractProductId", extCproduct.getContractProductId());  //为了下一次新增传递主表ID
+			extCproductService.update(extCproduct);
+			return "redirect:/cargo/extcproduct/tocreate.action";
+		}
+		
+		@RequestMapping("/cargo/extcproduct/deleteById.action")
+		public String delete(String id, String contractProductId, Model model) {
+			extCproductService.deleteById(id);
+			model.addAttribute("contractProductId", contractProductId);
+			return "redirect:/cargo/extcproduct/tocreate.action";
+		}
 }
