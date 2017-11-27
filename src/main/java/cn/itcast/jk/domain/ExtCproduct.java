@@ -1,10 +1,9 @@
 package cn.itcast.jk.domain;
 
 /**
- * @Description:
- * @Author:	nutony
- * @Company:	http://java.itcast.cn
- * @CreateDate:	2014年10月11日
+ * 
+ * @author liq
+ *
  */
 public class ExtCproduct {
 	private String id;

@@ -19,6 +19,7 @@ import cn.itcast.jk.pagination.Page;
 import cn.itcast.jk.service.ContractProductService;
 import cn.itcast.jk.service.ContractService;
 import cn.itcast.jk.service.ExtCproductService;
+import cn.itcast.jk.vo.ContractVO;
 
 /**
  * 
@@ -85,6 +86,10 @@ public class ContractServiceImpl implements ContractService {
 		map.put("ids", ids);
 		
 		contractDao.updateState(map);
+	}
+
+	public ContractVO view(String contractId) {
+		return contractDao.view(contractId);
 	}
 
 }

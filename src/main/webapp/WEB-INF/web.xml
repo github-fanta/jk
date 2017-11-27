@@ -26,8 +26,7 @@
   	<servlet-name>springmvc</servlet-name>
   	<url-pattern>*.action</url-pattern>
   </servlet-mapping>
-  
-	
+ 
 	<!-- 3.编码过滤器，解决中文乱码 -->
 	<filter>
 		<filter-name>SpringEncoding</filter-name>

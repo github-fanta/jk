@@ -92,10 +92,11 @@ public class DownloadUtil {
 	}
 
 	/**
-	 * by tony 2013-10-17
-	 * @param byteArrayOutputStream 将文件内容写入ByteArrayOutputStream
-	 * @param response HttpServletResponse	写入response
-	 * @param returnName 返回的文件名
+	 * 
+	 * @param byteArrayOutputStream
+	 * @param response
+	 * @param returnName
+	 * @throws IOException
 	 */
 	public void download(ByteArrayOutputStream byteArrayOutputStream, HttpServletResponse response, String returnName) throws IOException{
 		response.setContentType("application/octet-stream;charset=utf-8");

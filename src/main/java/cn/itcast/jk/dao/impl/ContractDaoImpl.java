@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import cn.itcast.jk.dao.ContractDao;
 import cn.itcast.jk.domain.Contract;
+import cn.itcast.jk.vo.ContractVO;
 
 /**
  * 
@@ -21,5 +22,9 @@ public class ContractDaoImpl extends BaseDaoImpl<Contract> implements ContractDa
 
 	public void updateState(Map map) {
 		super.getSqlSession().update(super.getNs()+".updateState", map);
+	}
+
+	public ContractVO view(String contractId) {
+		return super.getSqlSession().selectOne(super.getNs()+".view", contractId);
 	}
 }

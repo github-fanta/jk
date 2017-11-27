@@ -46,6 +46,17 @@ public class HomeController {
 		return "/sysadmin/left.jsp";
 	}
 	
+	//统计分析模块
+	@RequestMapping("/statMain.action")
+	public String statMain(){
+		return "/stat/main.jsp";
+	}
+	
+	@RequestMapping("/statLeft.action")
+	public String statLeft(){
+		return "/stat/left.jsp";
+	}
+	
 	//基础信息模块
 	
 	@RequestMapping("/baseinfoMain.action")
